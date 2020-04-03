@@ -32,20 +32,20 @@ function updateCoffees(e) {
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
+    {id: 1, name: '<h2>Light City</h2>', roast: '<p>light</p>'},
+    {id: 2, name: '<h2>Half City</h2>', roast: '<p>light,</p>'},
+    {id: 3, name: '<h2>Cinnamon</h2>', roast: '<p>light,</p>'},
+    {id: 4, name: '<h2>City</h2>', roast: '<p>medium,</p>'},
+    {id: 5, name: '<h2>American</h2>', roast: '<p>medium,</p>'},
+    {id: 6, name: '<h2>Breakfast</h2>', roast: '<p>medium,</p>'},
+    {id: 7, name: '<h2>High</h2>', roast: '<p>dark,</p>'},
+    {id: 8, name: '<h2>Continental</h2>', roast: '<p>dark,</p>'},
+    {id: 9, name: '<h2>New Orleans</h2>', roast: '<p>dark,</p>'},
+    {id: 10, name: '<h2>European</h2>', roast: '<p>dark,</p>'},
+    {id: 11, name: '<h2>Espresso</h2>', roast: '<p>dark,</p>'},
+    {id: 12, name: '<h2>Viennese</h2>', roast: '<p>dark,</p>'},
+    {id: 13, name: '<h2>Italian</h2>', roast: '<p>dark,</p>'},
+    {id: 14, name: '<h2>French</h2>', roast: '<p>dark,</p>'},
 ];
 
 var tbody = document.querySelector('#coffees');
