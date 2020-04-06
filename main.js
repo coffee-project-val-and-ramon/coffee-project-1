@@ -2,8 +2,6 @@
 
 console.log("Coffee Project");
 
-//Ramon put the <div> and <p> here.
-
 function renderCoffee(coffee) {
     var html = '<div class="coffee">';
     // html += '<div>' + coffee.id + '</div>';
@@ -26,7 +24,24 @@ function renderCoffees(coffees) {
 
     return html;
 }
+// Coffee Filter function
+function filterCoffees() {
+    var input, filter, div, h2, a ,i, txtValue;
+    input = document.getElementById('search');
+    filter = input.value.toLowerCase();
+    div = document.getElementById("coffees");
+    h2 = div.getElementsByTagName('h2');
 
+    for(i = 0; i < h2.length; i++) {
+        a = h2[i];
+        txtValue = a.textContent || a.innerText;
+        if(txtValue.toLowerCase().indexOf(filter) > -1) {
+            h2[i].style.display = "";
+        } else {
+            h2[i].style.display = "none";
+        }
+    }
+}
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -40,17 +55,7 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-/*Ramon added searchCoffees function*/
-function searchCoffees (coffees, query) {
-    return coffees.name.filter(function(el) {
-        return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
-    });
-}
-// function filterItems(arr, query) {
-//     return arr.filter(function(el) {
-//         return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
-//     })
-// }
+
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 
@@ -71,11 +76,9 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-/*Ramon added the console.logs to see what was going on at each step.*/
 
 var tbody = document.querySelector('#coffees');
-// tbody.reverse();
-// console.log('tbody.reverse()' , tbody.reverse());
+
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
@@ -83,6 +86,3 @@ tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 
-/*Ramon added event listener*/
-var searchButton = document.querySelector('#search');
-searchButton.addEventListener('click', searchCoffees);
