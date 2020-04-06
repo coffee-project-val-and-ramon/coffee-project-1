@@ -1,14 +1,19 @@
 "use strict"
 
+console.log("Coffee Project");
+
+//Ramon put the <div> and <p> here.
+
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    var html = '<div class="coffee">';
+    // html += '<div>' + coffee.id + '</div>';
+    html += '<h2>' + coffee.name + '</h2></div>';
+    html += '<div><p>' + coffee.roast + '</p></div>';
+    html += '<div>';
 
     return html;
 }
+
 
 function renderCoffees(coffees) {
     var html = '';
@@ -17,6 +22,7 @@ function renderCoffees(coffees) {
     }
     return html;
 }
+
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -30,7 +36,10 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -48,7 +57,11 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+/*Ramon added the console.logs to see what was going on at each step.*/
+
 var tbody = document.querySelector('#coffees');
+// tbody.reverse();
+// console.log('tbody.reverse()' , tbody.reverse());
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
