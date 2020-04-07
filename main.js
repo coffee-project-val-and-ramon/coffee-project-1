@@ -41,7 +41,8 @@ function filterCoffees() {
             h2[i].style.display = "none";
         }
     }
-}
+
+    }
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -80,9 +81,12 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 
 var submitButton = document.querySelector('#submit');
+
 var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', updateCoffees);
+roastSelection.addEventListener('change', updateCoffees);
+
+submitButton.addEventListener('click', filterCoffees);
 
