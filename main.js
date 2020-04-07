@@ -4,9 +4,9 @@ console.log("Coffee Project");
 
 function renderCoffee(coffee) {
     var html = '<div class="coffee">';
-    html += '<h2>' + coffee.name + '</h2></div>';
-    html += '<div><p>' + coffee.roast + '</p></div>';
-    html += '<div>';
+    html += '<div class="coffee-content"><h2>' + coffee.name + '</h2>';
+    html += '<p>' + coffee.roast + '</p></div>';
+    html += '</div>';
 
     return html;
 }
@@ -79,11 +79,8 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-
 var tbody = document.querySelector('#coffees');
-
 var submitButton = document.querySelector('#submit');
-
 var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
