@@ -26,12 +26,13 @@
 
     <!-- Coffee Search -->
     <label for="search"></label>
-    <input id="search" type="search" name="search" onkeyup="filterCoffees()">
+    <input id="search" type="search" name="search" placeholder="Coffee Search" onkeyup="filterCoffees()">
     <button id="submit" type="submit">Submit</button>
 </form>
 <!-- Add a coffee -->
-
-
+    <label for="new-coffee"></label>
+    <input id="new-coffee" type="text" name="new-coffee" placeholder="Add Coffee" onkeyup="newCoffee()">
+    <button id="new-coffee-btn" type="submit">Add Coffee</button>
 <!--  Coffee list  -->
 <div id="coffees"></div>
 

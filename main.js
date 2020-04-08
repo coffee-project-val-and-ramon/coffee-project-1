@@ -79,13 +79,13 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+//query selectors
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
 
+// Event Listeners
 roastSelection.addEventListener('change', updateCoffees);
-
 submitButton.addEventListener('click', filterCoffees);
-
