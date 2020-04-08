@@ -2,14 +2,11 @@
 
 console.log("Coffee Project");
 
-//Ramon put the <div> and <p> here.
-
 function renderCoffee(coffee) {
     var html = '<div class="coffee">';
-    // html += '<div>' + coffee.id + '</div>';
-    html += '<h2>' + coffee.name + '</h2></div>';
-    html += '<div><p>' + coffee.roast + '</p></div>';
-    html += '<div>';
+    html += '<div class="coffee-content"><h2>' + coffee.name + '</h2>';
+    html += '<p>' + coffee.roast + '</p></div>';
+    html += '</div>';
 
     return html;
 }
@@ -17,7 +14,7 @@ function renderCoffee(coffee) {
 
 function renderCoffees(coffees) {
     var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
+    for (var i = coffees.length - 1; i >= 0; i--) {
         coffees.sort(function (a, b) {
             return b.id - a.id
         });
@@ -27,19 +24,40 @@ function renderCoffees(coffees) {
     return html;
 }
 
+// Coffee Filter function
+function filterCoffees() {
+    var input, filter, div, h2, para, a, b, i, txtValue;
+    input = document.getElementById('search');
+    filter = input.value.toLowerCase();
+    div = document.getElementById("coffees");
+    h2 = div.getElementsByTagName('h2');
+    para = div.getElementsByTagName('p');
+
+    for(i = 0; i < h2.length; i++) {
+        a = h2[i];
+        b = para;
+        txtValue = a.textContent || a.innerText;
+
+        if(txtValue.toLowerCase().indexOf(filter) > -1) {
+            h2[i].style.display = b[i].style.display = "";
+
+        } else {
+            h2[i].style.display = b[i].style.display = "none";
+        }
+    }
+}
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
+    coffees.forEach(function (coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
-
 
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -61,14 +79,13 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-/*Ramon added the console.logs to see what was going on at each step.*/
-
+//query selectors
 var tbody = document.querySelector('#coffees');
-// tbody.reverse();
-// console.log('tbody.reverse()' , tbody.reverse());
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', updateCoffees);
+// Event Listeners
+roastSelection.addEventListener('change', updateCoffees);
+submitButton.addEventListener('click', filterCoffees);
